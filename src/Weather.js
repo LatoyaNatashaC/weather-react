@@ -15,7 +15,9 @@ export default function Weather() {
     setCity(event.target.value);
   }
 
-  function displayWeather(response) {}
+  function displayWeather(response) {
+    console.log(response.data);
+  }
 
   return (
     <div className="Weather">
