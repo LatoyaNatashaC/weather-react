@@ -2,6 +2,10 @@ import React from "react";
 import axios from "axios";
 
 export default function Weather() {
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   return (
     <div className="Weather">
       <a href="https://www.shecodes.io/" target="_blank" rel="noreferrer">
