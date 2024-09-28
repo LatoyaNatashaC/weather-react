@@ -4,8 +4,8 @@ import "./styles.css";
 
 export default function App() {
   return (
-    <div className="container">
-      <div className="app">
+    <div className="App">
+      <div className="container">
         <Weather />
       </div>
     </div>
