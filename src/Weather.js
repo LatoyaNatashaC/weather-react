@@ -6,6 +6,9 @@ export default function Weather() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    const apiKey = "4f3b0tf3219b4c7758082d0o48eabbbe";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    console.log(apiUrl);
   }
 
   function updateCity(event) {
@@ -21,7 +24,7 @@ export default function Weather() {
         <input
           type="search"
           placeholder="Enter a city.."
-          onChange="updateCity"
+          onChange={updateCity}
         />
         <input type="submit" value="search" />
       </form>
