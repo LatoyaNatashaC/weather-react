@@ -3,8 +3,13 @@ import axios from "axios";
 
 export default function Weather() {
   const [city, setCity] = useState("");
+
   function handleSubmit(event) {
     event.preventDefault();
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
   }
 
   return (
