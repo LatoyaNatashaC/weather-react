@@ -8,12 +8,14 @@ export default function Weather() {
     event.preventDefault();
     const apiKey = "4f3b0tf3219b4c7758082d0o48eabbbe";
     const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    console.log(apiUrl);
+    axios.get(apiUrl).then(displayWeather);
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
+
+  function displayWeather(response) {}
 
   return (
     <div className="Weather">
