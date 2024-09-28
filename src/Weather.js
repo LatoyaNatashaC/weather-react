@@ -13,7 +13,11 @@ export default function Weather() {
         <img src="/images/logo.png" className="logo" alt="SheCodes Logo" />
       </a>
       <form onSubmit={handleSubmit}>
-        <input type="search" placeholder="Enter a city.." />
+        <input
+          type="search"
+          placeholder="Enter a city.."
+          onChange="updateCity"
+        />
         <input type="submit" value="search" />
       </form>
       "Search.."
