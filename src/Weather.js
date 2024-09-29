@@ -6,25 +6,26 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function displayWeather(response) {
-    setWeatherData(true);
-    console.log(response.data.temperature.current);
+    console.log(response.data);
+    alert(response.data.temperature.current);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    const apiKey = "4f3b0tf3219b4c7758082d0o48eabbbe";
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(displayWeather);
+    search();
   }
 
   function updateCity(event) {
     setCity(event.target.value);
   }
 
-  if (weatherData) {
-    return "Loaded";
-  } else {
-    return;
+  function search() {
+    const apiKey = "4f3b0tf3219b4c7758082d0o48eabbbe";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayWeather);
+  }
+
+  return (
     <div className="Weather">
       <a href="https://www.shecodes.io/" target="_blank" rel="noreferrer">
         <img src="/images/logo.png" className="logo" alt="SheCodes Logo" />
@@ -37,7 +38,7 @@ export default function Weather(props) {
         />
         <input type="submit" value="search" />
       </form>
-
+      "Search.."
       <footer>
         This project was coded by{" "}
         <a
@@ -64,6 +65,6 @@ export default function Weather(props) {
           hosted on Netlify
         </a>
       </footer>
-    </div>;
-  }
+    </div>
+  );
 }
