@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState(props.defaultCity);
 
   function handleSubmit(event) {
     event.preventDefault();
