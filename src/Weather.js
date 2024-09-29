@@ -5,6 +5,11 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
 
+  function displayWeather(response) {
+    setWeatherData(true);
+    console.log(response.data.temperature.current);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     const apiKey = "4f3b0tf3219b4c7758082d0o48eabbbe";
@@ -16,11 +21,10 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
-  function displayWeather(response) {
-    console.log(response.data);
-  }
-
-  return (
+  if (weatherData) {
+    return "Loaded";
+  } else {
+    return;
     <div className="Weather">
       <a href="https://www.shecodes.io/" target="_blank" rel="noreferrer">
         <img src="/images/logo.png" className="logo" alt="SheCodes Logo" />
@@ -33,7 +37,7 @@ export default function Weather(props) {
         />
         <input type="submit" value="search" />
       </form>
-      "Search.."
+
       <footer>
         This project was coded by{" "}
         <a
@@ -60,6 +64,6 @@ export default function Weather(props) {
           hosted on Netlify
         </a>
       </footer>
-    </div>
-  );
+    </div>;
+  }
 }
